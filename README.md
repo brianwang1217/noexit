@@ -1,2 +1,2 @@
 # noexit
-smol 2d java game
+game of the year
