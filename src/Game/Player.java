@@ -19,7 +19,7 @@ public class Player {
 	
 	public Player() {
 		//player
-		ImageIcon img = new ImageIcon("/imgs/bluesquare.png");
+		ImageIcon img = new ImageIcon("/images/bluesquare.png");
 		im = img.getImage();
 		im = im.getScaledInstance(10, 10, Image.SCALE_DEFAULT);
 		x = 10;
@@ -27,7 +27,7 @@ public class Player {
 		
 		bounds = new Rectangle(x, y, 10, 10);
 		
-		ImageIcon ig = new ImageIcon("/imgs/greensquare.png");
+		ImageIcon ig = new ImageIcon("/images/greensquare.png");
 		endi = ig.getImage();
 		endi = endi.getScaledInstance(10, 10, Image.SCALE_DEFAULT);
 	}
