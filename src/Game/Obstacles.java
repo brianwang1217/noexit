@@ -10,7 +10,7 @@ public class Obstacles {
 	Rectangle bounds;
 	
 	public Obstacles(int xc, double drop) {
-		ImageIcon img = new ImageIcon("/imgs/blacksquare.png");
+		ImageIcon img = new ImageIcon("/images/blacksquare.png");
 		i = img.getImage();
 		i = i.getScaledInstance(15, 15, Image.SCALE_DEFAULT);
 		x = xc;
