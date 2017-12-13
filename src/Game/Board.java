@@ -14,10 +14,11 @@ public class Board extends JPanel implements ActionListener {
 	Obstacles[] o = new Obstacles[10];
 	int ox;
 	double dropRate;
-	
-	public static int wins = 0;
+	public int deaths = 0;
+	public int wins = 0;
 	
 	public Board() {
+		
 		p = new Player();
 		
 		for (int j = 0; j < o.length; j++) {
@@ -28,7 +29,7 @@ public class Board extends JPanel implements ActionListener {
 		addKeyListener(new Listener());
 
 		setFocusable(true);
-		ImageIcon img = new ImageIcon("/images/whitebackground.png");
+		ImageIcon img = new ImageIcon("images/whitebackground.png");
 		i = img.getImage();
 		t = new Timer(3, this);
 		t.start();
@@ -38,6 +39,7 @@ public class Board extends JPanel implements ActionListener {
 		if(hasCollided(p, o)) {
 			p.resetX();
 			p.resetY();
+			deaths++;
 		}
 		if (!p.hasWon()) {
 			p.move();
@@ -45,7 +47,6 @@ public class Board extends JPanel implements ActionListener {
 			wins++;
 			p.resetX();
 			p.resetY();
-			
 		}
 		repaint();
 	}
@@ -59,8 +60,8 @@ public class Board extends JPanel implements ActionListener {
 		return false;
 	}
 	
-	public void paint(Graphics g) {
-		super.paint(g);
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
 		Graphics2D d = (Graphics2D) g;
 		d.drawImage(i, 0, 0, null);
 		d.drawImage(p.getImage(), p.getX(), p.getY(), null);
