@@ -15,7 +15,8 @@ public class Board extends JPanel implements ActionListener {
 	int ox;
 	double dropRate;
 	
-	public static int wins = 0;
+	public int wins = 0;
+	public int deaths = 0;
 	
 	public Board() {
 		p = new Player();
@@ -38,6 +39,7 @@ public class Board extends JPanel implements ActionListener {
 		if(hasCollided(p, o)) {
 			p.resetX();
 			p.resetY();
+			deaths++;
 		}
 		if (!p.hasWon()) {
 			p.move();
@@ -45,7 +47,6 @@ public class Board extends JPanel implements ActionListener {
 			wins++;
 			p.resetX();
 			p.resetY();
-			
 		}
 		repaint();
 	}
